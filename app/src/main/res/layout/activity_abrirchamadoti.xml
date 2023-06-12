@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bg_gradient">
+
+    <TextView
+        android:id="@+id/tituloti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"/>
+
+    <EditText
+        android:id="@+id/chamadonome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tituloti"
+        android:layout_marginTop="10dp"
+        android:hint="Seu Nome"
+        android:inputType="textCapWords"
+        android:minHeight="48dp"
+        android:textColorHint="#BBDEFB" />
+
+    <EditText
+        android:id="@+id/chamadolocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chamadonome"
+        android:layout_marginTop="10dp"
+        android:hint="Local/Setor"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#BBDEFB" />
+
+    <EditText
+        android:id="@+id/chamadocllr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:minHeight="48dp"
+        android:inputType="phone"
+        android:layout_below="@+id/chamadolocal"
+        android:hint="Celular"
+        android:textColorHint="#BBDEFB"/>
+
+
+        <EditText
+        android:id="@+id/descricaoproblema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Digite aqui a descrição do(s) problema(s)"
+        android:maxLines="10"
+        android:padding="50dp"
+        android:layout_below="@id/chamadocllr"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descricaoproblema"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/save"
+        android:background="#2196F3"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+
+        <TextView
+        android:id="@+id/textViewgerarprotocolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnSave"
+        android:textColor="#FF1100"
+        android:layout_marginTop="20dp" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHostFragmentcreate"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+</RelativeLayout>

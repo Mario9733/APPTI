@@ -2,6 +2,7 @@
     <string name="app_name">CHAMA T.I.</string>
     <string name="abrirchamado">Abrir Chamado</string>
     <string name="gerenciarchamado">Gerenciar Chamado</string>
+    <string name="consulchamado">Consultar Chamado</string>
     <string name="ti">T.I.</string>
     <string name="def">Defeito</string>
     <string name="descricao">Descreva seu defeito</string>

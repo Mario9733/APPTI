@@ -33,7 +33,7 @@
         android:id="@+id/btnConsultTicket"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/gerenciarchamado"
+        android:text="@string/consulchamado"
         android:textSize="20sp"
         android:background="#2196F3"
         android:textColor="#FFFFFF"

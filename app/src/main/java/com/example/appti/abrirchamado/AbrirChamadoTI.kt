@@ -48,38 +48,58 @@ class AbrirChamadoTI : AppCompatActivity() {
             return
         }
 
-        val protocolo = gerarProtocolo()
+        gerarProtocolo { protocolo ->
+            val chamado = Chamado(nome, setor, telefone, descricao, protocolo)
 
-        val chamado = Chamado(nome, setor, telefone, descricao, protocolo)
+            db.collection("chamado")
+                .add(chamado)
+                .addOnSuccessListener { documentReference ->
+                    Toast.makeText(
+                        this,
+                        "Chamado salvo com sucesso. Número de protocolo: $protocolo",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    limparCampos()
 
-        db.collection("chamado")
-            .add(chamado)
-            .addOnSuccessListener { documentReference ->
-                Toast.makeText(
-                    this,
-                    "Chamado salvo com sucesso. Número de protocolo: $protocolo",
-                    Toast.LENGTH_SHORT
-                ).show()
-                limparCampos()
-
-                // Passar o número de protocolo para a tela protocolo
-                val intent = Intent(this, ProtocoloActivity::class.java)
-                intent.putExtra("Protocolo", protocolo)
-                startActivity(intent)
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(
-                    this,
-                    "Erro ao salvar chamado. Por favor, tente novamente.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+                    // Passar o número de protocolo para a tela protocolo
+                    val intent = Intent(this, ProtocoloActivity::class.java)
+                    intent.putExtra("Protocolo", protocolo)
+                    startActivity(intent)
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(
+                        this,
+                        "Erro ao salvar chamado. Por favor, tente novamente.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
     }
 
-    private fun gerarProtocolo(): String {
+    private fun gerarProtocolo(callback: (String) -> Unit) {
         val currentDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(Date())
         val sequencial = "01"
-        return "$currentDate$sequencial"
+        val protocolo = "$currentDate$sequencial"
+
+        db.collection("chamado")
+            .whereEqualTo("protocolo", protocolo)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    var novoSequencial = sequencial.toInt() + 1
+                    while (querySnapshot.any { it["protocolo"] == "$currentDate${novoSequencial.toString().padStart(2, '0')}" }) {
+                        novoSequencial++
+                    }
+                    val novoProtocolo = "$currentDate${novoSequencial.toString().padStart(2, '0')}"
+                    callback(novoProtocolo)
+                } else {
+                    callback(protocolo)
+                }
+            }
+            .addOnFailureListener { e ->
+                // Tratamento de erro ao consultar o Firestore
+                callback(protocolo) // Em caso de erro, usar o protocolo inicial
+            }
     }
 
     private fun limparCampos() {

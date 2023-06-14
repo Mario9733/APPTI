@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.appti.Main.MainFragment"
+        android:name="com.example.appti.main.MainFragment"
         android:label="GCTI"
         tools:layout="@layout/fragment_main" />
 

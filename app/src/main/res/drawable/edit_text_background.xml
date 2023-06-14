@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF"/> <!-- Cor de fundo do campo de texto -->
+    <corners android:radius="8dp"/> <!-- Cantos arredondados do campo de texto -->
+    <stroke
+        android:color="#CCCCCC"
+    android:width="2dp"/>
+</shape>

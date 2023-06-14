@@ -18,12 +18,16 @@
 
 
         <activity android:name=".abrirchamado.AbrirChamadoTI" />
-        <activity android:name=".Main.Servicos"/>
-        <activity android:name=".Main.ServicosLogin"/>
+        <activity android:name=".main.Servicos"/>
+        <activity android:name=".main.ServicosLogin"/>
+        <activity android:name=".main.TiLogin"/>
         <activity android:name=".abrirchamado.ProtocoloActivity" />
         <activity android:name=".consul.ConsultarChamado" />
-        <activity android:name=".consul.ResultadoConsultActivity" />
-        <activity android:name="com.example.appti.Main.MainActivity"
+<!--        <activity android:name=".consul.ResultadoConsultActivity" />-->
+        <activity android:name=".gerenciarchamado.GerenciarChamadosActivity" />
+        <activity android:name=".gerenciarchamado.DetalhesChamadoActivity" />
+
+        <activity android:name="com.example.appti.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,9 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appti.R
-import com.example.appti.abrirchamado.Chamado
-import com.example.appti.abrirchamado.ProtocoloActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -48,12 +47,13 @@ class AbrirChamadoTI : AppCompatActivity() {
             return
         }
 
-        gerarProtocolo { protocolo ->
-            val chamado = Chamado(nome, setor, telefone, descricao, protocolo)
+        gerarProtocolo { novoProtocolo ->
+            val chamado = Chamado(nome, setor, telefone, descricao, novoProtocolo)
 
             db.collection("chamado")
                 .add(chamado)
                 .addOnSuccessListener { documentReference ->
+                    val protocolo = chamado.protocolo // passar protocolo
                     Toast.makeText(
                         this,
                         "Chamado salvo com sucesso. Número de protocolo: $protocolo",
@@ -78,27 +78,32 @@ class AbrirChamadoTI : AppCompatActivity() {
 
     private fun gerarProtocolo(callback: (String) -> Unit) {
         val currentDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(Date())
-        val sequencial = "01"
-        val protocolo = "$currentDate$sequencial"
 
         db.collection("chamado")
-            .whereEqualTo("protocolo", protocolo)
+            .orderBy("protocolo", Query.Direction.DESCENDING)
+            .limit(1)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (!querySnapshot.isEmpty) {
-                    var novoSequencial = sequencial.toInt() + 1
-                    while (querySnapshot.any { it["protocolo"] == "$currentDate${novoSequencial.toString().padStart(2, '0')}" }) {
-                        novoSequencial++
+                    val lastProtocolo = querySnapshot.documents[0].getString("protocolo")
+                    if (lastProtocolo != null && lastProtocolo.startsWith(currentDate)) {
+                        val lastSequencial = lastProtocolo.substring(currentDate.length).toInt()
+                        val novoSequencial = lastSequencial + 1
+                        val novoProtocolo = "$currentDate${novoSequencial.toString().padStart(2, '0')}"
+                        callback(novoProtocolo)
+                    } else {
+                        val novoProtocolo = "$currentDate" + "01"
+                        callback(novoProtocolo)
                     }
-                    val novoProtocolo = "$currentDate${novoSequencial.toString().padStart(2, '0')}"
-                    callback(novoProtocolo)
                 } else {
-                    callback(protocolo)
+                    val novoProtocolo = "$currentDate" + "01"
+                    callback(novoProtocolo)
                 }
             }
             .addOnFailureListener { e ->
                 // Tratamento de erro ao consultar o Firestore
-                callback(protocolo) // Em caso de erro, usar o protocolo inicial
+                val novoProtocolo = "$currentDate" + "01"
+                callback(novoProtocolo) // Em caso de erro, usar o protocolo inicial
             }
     }
 

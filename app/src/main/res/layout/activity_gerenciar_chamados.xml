@@ -2,12 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gerenciarchamado.GerenciarChamadosActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_gradient"
+    tools:context=".gerenciarchamado.GerenciarChamadoActivity">
 
-    <ListView
-        android:id="@+id/listViewChamados"
+    <ImageView
+        android:id="@+id/iconti"
+        android:layout_width="180dp"
+        android:layout_height="165dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@mipmap/tift" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewchamados"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iconti"
+        android:layout_marginTop="15dp"/>
 
 </RelativeLayout>

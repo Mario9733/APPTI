@@ -1,5 +1,6 @@
 package com.example.appti.consul
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appti.R
 import com.example.appti.abrirchamado.Chamado
+import com.example.appti.main.Servicos
 import com.google.firebase.firestore.*
 
 class ConsultarChamado : AppCompatActivity() {
@@ -29,7 +31,7 @@ class ConsultarChamado : AppCompatActivity() {
 
         // Inicializar o Firebase Firestore
         firestore = FirebaseFirestore.getInstance()
-        chamadosCollection = firestore.collection("chamados")
+        chamadosCollection = firestore.collection("chamado")
 
         btnConsultar.setOnClickListener {
             consultarChamado()
@@ -65,6 +67,7 @@ class ConsultarChamado : AppCompatActivity() {
         val resultado = "Nome: ${chamado.nome}\n" +
                 "Setor: ${chamado.setor}\n" +
                 "Telefone: ${chamado.celular}\n" +
+                "Protocolo: ${chamado.protocolo}\n" +
                 "Descrição: ${chamado.descricao}"
 
         textViewResultado.text = resultado
@@ -72,5 +75,10 @@ class ConsultarChamado : AppCompatActivity() {
 
     private fun exibirChamadoNaoEncontrado() {
         textViewResultado.text = "Chamado não encontrado."
+    }
+
+    fun openVoltarmserv(view: android.view.View) {
+        val intent = Intent(this, Servicos::class.java)
+        startActivity(intent)
     }
 }

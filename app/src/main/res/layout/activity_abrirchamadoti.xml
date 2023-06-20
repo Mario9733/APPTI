@@ -15,7 +15,7 @@
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"/>
+        android:layout_marginTop="30dp"/>
 
     <EditText
         android:id="@+id/chamadonome"
@@ -23,10 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tituloti"
         android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
         android:hint="Seu Nome"
         android:inputType="textCapWords"
         android:minHeight="48dp"
-        android:textColorHint="#BBDEFB" />
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/chamadolocal"
@@ -37,7 +38,8 @@
         android:hint="Local/Setor"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#BBDEFB" />
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/chamadocllr"
@@ -48,7 +50,8 @@
         android:inputType="phone"
         android:layout_below="@+id/chamadolocal"
         android:hint="Celular"
-        android:textColorHint="#BBDEFB"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"/>
 
 
         <EditText
@@ -59,6 +62,8 @@
         android:hint="Digite aqui a descrição do(s) problema(s)"
         android:maxLines="10"
         android:padding="50dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
         android:layout_below="@id/chamadocllr"/>
 
     <Button
@@ -72,16 +77,6 @@
         android:background="#2196F3"
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
-
-
-        <TextView
-        android:id="@+id/textViewgerarprotocolo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnSave"
-        android:textColor="#FF1100"
-        android:layout_marginTop="20dp" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragmentcreate"

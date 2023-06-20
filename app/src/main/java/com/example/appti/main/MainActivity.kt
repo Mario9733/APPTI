@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
     fun openTILogin(view: android.view.View) {
         val intent = Intent(this, TiLogin::class.java)
         startActivity(intent)

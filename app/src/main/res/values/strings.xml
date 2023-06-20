@@ -7,6 +7,7 @@
     <string name="def">Defeito</string>
     <string name="descricao">Descreva seu defeito</string>
     <string name="continuar">Continue</string>
+    <string name="voltar">Voltar</string>
     <string name="Menu_Principal">Voltar ao Menu</string>
     <string name="selectimage">Adicionar Fotos</string>
     <string name="save">Salvar</string>
@@ -14,5 +15,12 @@
     <string name="invalid_credentials">CREDENCIAIS INVÁLIDAS</string>
     <string name="selecionar_imagem">Selecionar Imagem</string>
     <string name="admob_app_id">YOUR_ADMOB_APP_ID</string>
+    <string name="serv">Serviços</string>
+    <string name="nome_chamado">Nome: %s</string>
+    <string name="setor_chamado">Setor: %s</string>
+    <string name="telefone_chamado">Celular: %s</string>
+    <string name="descricao_chamado">Descrição: %s</string>
+    <string name="protocolo_chamado">Protocolo: %s</string>
+
 
 </resources>

@@ -6,22 +6,43 @@
     app:startDestination="@id/mainFragment">
 
     <fragment
+        android:id="@+id/tiLoginFragment"
+        android:name="com.example.appti.main.TiLoginFragment"
+        android:label="TiLoginFragment" />
+    <activity
+        android:id="@+id/servicosLogin"
+        android:name="com.example.appti.main.ServicosLogin"
+        android:label="ServicosLogin" />
+    <activity
+        android:id="@+id/abrirChamadoTI"
+        android:name="com.example.appti.abrirchamado.AbrirChamadoTI"
+        android:label="AbrirChamadoTI" />
+    <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.appti.main.MainFragment"
-        android:label="GCTI"
-        tools:layout="@layout/fragment_main" />
-
+        android:label="MainFragment" />
     <fragment
-        android:id="@+id/abrirchamadofragment"
-        android:name="com.example.appti.abrirchamado.AbrirChamadoTIFragment"
-        android:label="Abrir Chamado"
-        tools:layout="@layout/fragment_abrirchamadoti" >
-    </fragment>
-
-    <fragment
-        android:id="@+id/consultTicketFragment"
-        android:name="com.example.appti.consul.ConsultTicketFragment"
-        android:label="Consultar Chamado"
-        tools:layout="@layout/fragment_consult_ticket" />
+        android:id="@+id/servicosFragment"
+        android:name="com.example.appti.main.ServicosFragment"
+        android:label="ServicosFragment" />
+    <activity
+        android:id="@+id/protocoloActivity"
+        android:name="com.example.appti.abrirchamado.ProtocoloActivity"
+        android:label="activity_protocolo"
+        tools:layout="@layout/activity_protocolo" />
+    <activity
+        android:id="@+id/consultarChamado"
+        android:name="com.example.appti.consul.ConsultarChamado"
+        android:label="ConsultarChamado" />
+    <activity
+        android:id="@+id/gerenciarChamadoActivity"
+        android:name="com.example.appti.gerenciarchamado.GerenciarChamadoActivity"
+        android:label="activity_gerenciar_chamados"
+        tools:layout="@layout/activity_gerenciar_chamados" />
+    <activity
+        android:id="@+id/detalhesChamadoActivity"
+        android:name="com.example.appti.gerenciarchamado.DetalhesChamadoActivity"
+        android:label="activity_detalhes_chamado"
+        tools:layout="@layout/activity_detalhes_chamado" />
 
 </navigation>

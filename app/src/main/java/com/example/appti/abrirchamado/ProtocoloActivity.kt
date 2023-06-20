@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appti.main.MainActivity
 import com.example.appti.R
+import com.example.appti.main.Servicos
 
 
 class ProtocoloActivity : AppCompatActivity() {
@@ -27,6 +28,10 @@ class ProtocoloActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+    fun openVoltarServ(view: android.view.View) {
+        val intent = Intent(this, Servicos::class.java)
+        startActivity(intent)
     }
 }
 

@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appti.R
-import com.example.appti.gerenciarchamado.GerenciarChamadosActivity
+import com.example.appti.gerenciarchamado.GerenciarChamadoActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -47,7 +47,7 @@ class TiLogin : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             // Aqui você pode iniciar a próxima atividade
-                           startActivity(Intent(this, GerenciarChamadosActivity::class.java))
+                           startActivity(Intent(this, GerenciarChamadoActivity::class.java))
                             finish()
                         } else {
                             // Se o login falhar, exibir uma mensagem de erro

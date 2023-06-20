@@ -1,5 +1,6 @@
 package com.example.appti.gerenciarchamado
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,9 @@ class DetalhesChamadoActivity : AppCompatActivity() {
     private lateinit var textViewNome: TextView
     private lateinit var textViewSetor: TextView
     private lateinit var textViewTelefone: TextView
+    private lateinit var textViewProtocolo: TextView
     private lateinit var textViewDescricao: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +23,9 @@ class DetalhesChamadoActivity : AppCompatActivity() {
         textViewNome = findViewById(R.id.textViewNome)
         textViewSetor = findViewById(R.id.textViewSetor)
         textViewTelefone = findViewById(R.id.textViewTelefone)
+        textViewProtocolo = findViewById(R.id.textViewProtocolo)
         textViewDescricao = findViewById(R.id.textViewDescricao)
+
 
         val chamado = intent.getParcelableExtra<Chamado>("chamado")
         chamado?.let {
@@ -29,9 +34,17 @@ class DetalhesChamadoActivity : AppCompatActivity() {
     }
 
     private fun exibirDetalhesChamado(chamado: Chamado) {
-        textViewNome.text = chamado.nome
-        textViewSetor.text = chamado.setor
-        textViewTelefone.text = chamado.celular
-        textViewDescricao.text = chamado.descricao
+        textViewNome.text = getString(R.string.nome_chamado, chamado.nome)
+        textViewSetor.text = getString(R.string.setor_chamado, chamado.setor)
+        //trocado os dois de baixo .prot e .cllr
+        textViewTelefone.text = getString(R.string.telefone_chamado, chamado.protocolo)
+        textViewProtocolo.text = getString(R.string.protocolo_chamado, chamado.celular)
+        textViewDescricao.text = getString(R.string.descricao_chamado, chamado.descricao)
+    }
+
+
+    fun openVoltardetail(view: android.view.View) {
+        val intent = Intent(this, GerenciarChamadoActivity::class.java)
+        startActivity(intent)
     }
 }

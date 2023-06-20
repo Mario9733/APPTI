@@ -4,26 +4,29 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Chamado(
-    val nome: String,
-    val setor: String,
-    val celular: String,
-    val descricao: String,
-    val protocolo: String
+    val nome: String = "",
+    val setor: String = "",
+    val celular: String = "",
+    val protocolo: String = "",
+    val descricao: String = ""
+
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readString()!!
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: ""
+
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nome)
         parcel.writeString(setor)
         parcel.writeString(celular)
-        parcel.writeString(descricao)
         parcel.writeString(protocolo)
+        parcel.writeString(descricao)
+
     }
 
     override fun describeContents(): Int {

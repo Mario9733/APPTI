@@ -2,16 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.appti">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icti"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icti_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.APPTI"
         tools:targetApi="31">
@@ -23,10 +30,8 @@
         <activity android:name=".main.TiLogin"/>
         <activity android:name=".abrirchamado.ProtocoloActivity" />
         <activity android:name=".consul.ConsultarChamado" />
-<!--        <activity android:name=".consul.ResultadoConsultActivity" />-->
-        <activity android:name=".gerenciarchamado.GerenciarChamadosActivity" />
+        <activity android:name=".gerenciarchamado.GerenciarChamadoActivity" />
         <activity android:name=".gerenciarchamado.DetalhesChamadoActivity" />
-
         <activity android:name="com.example.appti.main.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,64 +1,55 @@
 package com.example.appti.gerenciarchamado
 
-import android.content.Intent
-import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.appti.R
 import com.example.appti.abrirchamado.Chamado
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
-class GerenciarChamadosActivity : AppCompatActivity() {
+class GerenciarChamadoActivity : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ChamadosAdapter
 
-    private lateinit var listViewChamados: ListView
-    private lateinit var chamadosList: MutableList<Chamado>
-    private lateinit var chamadosAdapter: ArrayAdapter<Chamado>
-
-    private lateinit var firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gerenciar_chamados)
 
-        listViewChamados = findViewById(R.id.listViewChamados)
-        chamadosList = mutableListOf()
-        chamadosAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, chamadosList)
-        listViewChamados.adapter = chamadosAdapter
+        recyclerView = findViewById(R.id.recyclerviewchamados)
+        recyclerView.layoutManager = LinearLayoutManager(this) // Correção aqui
 
-        firestore = FirebaseFirestore.getInstance()
+        adapter = ChamadosAdapter(emptyList()) // Correção aqui
+        recyclerView.adapter = adapter
 
-        listViewChamados.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            val chamado = chamadosList[position]
-            exibirDetalhesChamado(chamado)
-        }
-
-        buscarChamados()
+        loadChamados()
     }
 
-    private fun buscarChamados() {
-        firestore.collection("chamados")
+    private fun loadChamados() {
+        firestore.collection("chamado")
             .orderBy("protocolo", Query.Direction.DESCENDING)
             .get()
-            .addOnSuccessListener { result ->
-                chamadosList.clear()
-                for (document in result) {
-                    val chamado = document.toObject(Chamado::class.java)
-                    chamadosList.add(chamado)
+            .addOnSuccessListener { querySnapshot ->
+                val chamados = mutableListOf<Chamado>()
+                for (document in querySnapshot.documents) {
+                    val nome = document.getString("nome") ?: ""
+                    val setor = document.getString("setor") ?: ""
+                    val protocolo = document.getString("protocolo") ?: ""
+                    val celular = document.getString("celular") ?: ""
+                    val descricao = document.getString("descricao") ?: ""
+
+                    val chamado = Chamado(nome, setor, protocolo, celular, descricao)
+                    chamados.add(chamado)
                 }
-                chamadosAdapter.notifyDataSetChanged()
+
+                adapter.setChamados(chamados)
             }
             .addOnFailureListener { exception ->
-                // Tratar falha na obtenção dos chamados
-                exception.printStackTrace()
+                // Handle error
             }
-    }
-
-    private fun exibirDetalhesChamado(chamado: Chamado) {
-        val intent = Intent(this, DetalhesChamadoActivity::class.java)
-        intent.putExtra("chamado", chamado)
-        startActivity(intent)
     }
 }

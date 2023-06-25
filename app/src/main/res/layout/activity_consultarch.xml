@@ -31,6 +31,7 @@
         android:id="@+id/buttonConsultarc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_rounded"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/editTextProtocoloc"
         android:layout_marginTop="20dp"
@@ -55,6 +56,7 @@
         android:text="@string/Menu_Principal"
         android:layout_below="@id/textViewResultadoc"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/button_rounded"
         android:onClick="openVoltarmserv"
         android:layout_marginTop="10dp" />
 

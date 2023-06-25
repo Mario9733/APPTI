@@ -26,13 +26,14 @@
         android:layout_centerInParent="true" />
 
     <Button
-        android:id="@+id/buttonVoltar"
+        android:id="@+id/btnvoltserv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Menu_Principal"
+        android:text="@string/Menu_S"
+        android:background="@drawable/button_rounded"
         android:layout_below="@id/textViewProtocolo"
         android:layout_centerHorizontal="true"
-        android:onClick="openVoltarServ"
+        android:onClick="openVtServ"
         android:layout_marginTop="16dp" />
 
 

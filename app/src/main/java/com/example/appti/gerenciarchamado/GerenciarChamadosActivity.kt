@@ -1,5 +1,6 @@
 package com.example.appti.gerenciarchamado
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appti.R
 import com.example.appti.abrirchamado.Chamado
+import com.example.appti.main.MainActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
@@ -51,5 +53,9 @@ class GerenciarChamadoActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 // Handle error
             }
+    }
+    fun openMenuP(view: android.view.View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -4,6 +4,7 @@ import com.example.appti.abrirchamado.AbrirChamadoTI
 import com.example.appti.consul.ConsultarChamado
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appti.R
 
@@ -26,5 +27,8 @@ class Servicos : AppCompatActivity() {
         startActivity(intent)
     }
 
-
+    fun openMenuPrincipal(view: android.view.View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
 }

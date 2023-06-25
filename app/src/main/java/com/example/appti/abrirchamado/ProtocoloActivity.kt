@@ -21,17 +21,13 @@ class ProtocoloActivity : AppCompatActivity() {
         val textViewProtocolo = findViewById<TextView>(R.id.textViewProtocolo)
         textViewProtocolo.text = "Número de protocolo: $protocolo"
 
-        val buttonVoltar = findViewById<Button>(R.id.buttonVoltar)
+        val buttonVoltar = findViewById<Button>(R.id.btnvoltserv)
         buttonVoltar.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Servicos::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
         }
-    }
-    fun openVoltarServ(view: android.view.View) {
-        val intent = Intent(this, Servicos::class.java)
-        startActivity(intent)
     }
 }
 

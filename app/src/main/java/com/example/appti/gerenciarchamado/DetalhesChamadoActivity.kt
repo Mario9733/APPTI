@@ -36,10 +36,10 @@ class DetalhesChamadoActivity : AppCompatActivity() {
     private fun exibirDetalhesChamado(chamado: Chamado) {
         textViewNome.text = getString(R.string.nome_chamado, chamado.nome)
         textViewSetor.text = getString(R.string.setor_chamado, chamado.setor)
-        //trocado os dois de baixo .prot e .cllr
-        textViewTelefone.text = getString(R.string.telefone_chamado, chamado.protocolo)
-        textViewProtocolo.text = getString(R.string.protocolo_chamado, chamado.celular)
-        textViewDescricao.text = getString(R.string.descricao_chamado, chamado.descricao)
+        //corrigi um bug com gambiarra mas corrigi
+        textViewTelefone.text = getString(R.string.telefone_chamado, chamado.descricao)
+        textViewProtocolo.text = getString(R.string.protocolo_chamado, chamado.protocolo)
+        textViewDescricao.text = getString(R.string.descricao_chamado, chamado.celular)
     }
 
 

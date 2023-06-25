@@ -7,8 +7,8 @@ data class Chamado(
     val nome: String = "",
     val setor: String = "",
     val celular: String = "",
-    val protocolo: String = "",
-    val descricao: String = ""
+    val descricao: String = "",
+    val protocolo: String = ""
 
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -23,9 +23,9 @@ data class Chamado(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nome)
         parcel.writeString(setor)
-        parcel.writeString(celular)
         parcel.writeString(protocolo)
         parcel.writeString(descricao)
+        parcel.writeString(celular)
 
     }
 

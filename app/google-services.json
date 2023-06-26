@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "841374955608",
+    "firebase_url": "https://chama-ti-9ac22-default-rtdb.firebaseio.com",
+    "project_id": "chama-ti-9ac22",
+    "storage_bucket": "chama-ti-9ac22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841374955608:android:d28629f5c86c0ca7dcf22d",
+        "android_client_info": {
+          "package_name": "com.example.appti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841374955608-utnj09e4hp1qidcg215do8parqr9at0a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appti",
+            "certificate_hash": "98b517f5957fc36167203af70fb36e193e668720"
+          }
+        },
+        {
+          "client_id": "841374955608-3mobs6hfkk3q40q0v5l2l1eabr2ncjcs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5mnkgD8m59ZNEsB7t55m9p2DLVXuL0-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841374955608-3mobs6hfkk3q40q0v5l2l1eabr2ncjcs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

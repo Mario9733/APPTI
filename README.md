@@ -3,7 +3,8 @@ App para abrir chamado, consultar e gerenciar chamados, com autenticação e ban
 
 Primeiro repositório do Git, antes de mudar o banco de dados pro firebase(repositorio inicial do projeto, como houve uma mudança mais bruta, resolvi fazer outro repositório.
 https://github.com/Mario9733/GCTI
-
+Versão final 26/06/2023 em formato zip
+https://drive.google.com/file/d/1zGFfZKTn5yg7OGk7uvdrJMBWsndulFpO/view?usp=sharing
 
 PROJETO CHAMA TI
 Firebase https://console.firebase.google.com/u/1/project/chama-ti-9ac22/overview?hl=pt-br (habilitei seu email rennanmaia@gmail.com sigaa como leitor do projeto)

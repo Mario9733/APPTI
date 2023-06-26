@@ -19,6 +19,7 @@ https://cloud.justinmind.com/usernote/prototype/8751705789f59c5fded3b3ea5fd3705d
 
 ARQUIVO JSON Firebase https://drive.google.com/file/d/15v7vgSejYMWJJugkArtNvI3lCM0QNSCg/view?usp=sharing
 
+link video https://youtu.be/DHahn5JZlWo
 INSTRUÇÕES
 Feito no Android Studio
 Adicionar o arquivo JSON na pasta app

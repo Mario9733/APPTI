@@ -23,6 +23,7 @@
     <string name="descricao_chamado">Descrição: %s</string>
     <string name="protocolo_chamado">Protocolo: %s</string>
     <string name="sair">Sair</string>
+    <string name="apagar">apagar</string>
 
 
 </resources>
